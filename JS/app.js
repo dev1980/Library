@@ -3,27 +3,6 @@ if (myLibrary == null) {
   myLibrary = [];
 }
 
-// const myLibrary = [
-//   {
-//     title: "Harry Potter",
-//     author: "John Doe",
-//     pages: "234",
-//     type: "Read"
-//   },
-//   {
-//     title: "Sherlock Hormes",
-//     author: "Dr John Doe",
-//     pages: "587",
-//     type: "Unread"
-//   },
-//   {
-//     title: "Tale of Two Cities",
-//     author: "Dr Smith Doe",
-//     pages: "359",
-//     type: "Unread"
-//   }
-// ];
-
 // Book class: Represent book
 class Book {
   constructor(title, author, pages, type) {
