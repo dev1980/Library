@@ -1,23 +1,28 @@
-const myLibrary = [
-  {
-    title: "Harry Potter",
-    author: "John Doe",
-    pages: "234",
-    type: "Read"
-  },
-  {
-    title: "Sherlock Hormes",
-    author: "Dr John Doe",
-    pages: "587",
-    type: "Unread"
-  },
-  {
-    title: "Tale of Two Cities",
-    author: "Dr Smith Doe",
-    pages: "359",
-    type: "Unread"
-  }
-];
+let myLibrary = JSON.parse(window.localStorage.getItem('library'));
+if (myLibrary == null) {
+  myLibrary = [];
+}
+
+// const myLibrary = [
+//   {
+//     title: "Harry Potter",
+//     author: "John Doe",
+//     pages: "234",
+//     type: "Read"
+//   },
+//   {
+//     title: "Sherlock Hormes",
+//     author: "Dr John Doe",
+//     pages: "587",
+//     type: "Unread"
+//   },
+//   {
+//     title: "Tale of Two Cities",
+//     author: "Dr Smith Doe",
+//     pages: "359",
+//     type: "Unread"
+//   }
+// ];
 
 // Book class: Represent book
 class Book {
@@ -45,6 +50,10 @@ class UI {
     <td><a href='#' class='btn btn-danger btn-sm delete'>X</a></td> 
     </tr>`;
     list.innerHTML += row;
+  }
+
+  static updateLocalStorage(array) {
+    window.localStorage.setItem('library', JSON.stringify(array));
   }
 
   static deleteBook(el) {
@@ -94,6 +103,8 @@ document.getElementById("form-book").addEventListener("submit", e => {
   const book = new Book(title, author, pages, type);
   if (UI.validate(book)) {
     // Add Book to UI
+    myLibrary.push(book);
+    UI.updateLocalStorage(myLibrary);
     UI.addBookToList(book);
     // Clear Field
     UI.clearFields();
