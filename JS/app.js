@@ -87,7 +87,6 @@ document.getElementById('form-book').addEventListener('submit', e => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
-  const type;
   const read = document.getElementById('read');
   const unread = document.getElementById('unread');
 
