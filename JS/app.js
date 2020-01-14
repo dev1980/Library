@@ -20,7 +20,7 @@ class UI {
       {
         title: 'Sherlock Hormes',
         author: 'Dr John Doe',
-        pages: '2777',
+        pages: '277',
         type: 'Unread'
       }
     ];
