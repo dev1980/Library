@@ -18,8 +18,8 @@ class UI {
                 type: "Read"
             },
             {
-                title: "Harry Potter 2",
-                author: "John Doe",
+                title: "Sherlock Hormes",
+                author: "Dr John Doe",
                 pages: "2777",
                 type: "Unread"
             }
