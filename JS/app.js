@@ -62,9 +62,8 @@ class UI {
   static validate(book) {
     if (book.title.length < 2 || book.author.length < 2) {
       return false;
-    } else {
-      return true;
     }
+      return true;
   }
 
   static showAlert(type, displayMessage) {
@@ -102,9 +101,7 @@ document.getElementById('form-book').addEventListener('submit', e => {
     UI.clearFields();
     UI.showAlert('success', 'You have book has been added book succesefully.');
   } else {
-    UI.showAlert(
-      'danger',
-      ' Sorry you canot add this book, Please fill the form');
+    UI.showAlert('danger', ' Sorry you canot add this book, Please fill the form');
   }
 
   e.preventDefault();
