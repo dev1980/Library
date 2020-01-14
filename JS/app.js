@@ -20,7 +20,13 @@ class UI {
       {
         title: 'Sherlock Hormes',
         author: 'Dr John Doe',
-        pages: '277',
+        pages: '587',
+        type: 'Unread'
+      },
+      {
+        title: 'Tale of Two Cities',
+        author: 'Dr Smith Doe',
+        pages: '359',
         type: 'Unread'
       }
     ];
