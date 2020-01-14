@@ -41,12 +41,20 @@ class UI {
         </tr>`;
         list.innerHTML += row;
     }
+    static deleteBook(el) {
+        if(el.classList.contains('delete')){
+            el.parentElement.parentElement.remove();
+        }
+    }
+    static clearFields(){
+        let formBook = document.getElementById("form-book");
+        formBook.reset();
+    }
 
 
-    
 }
 
-    // Instatiate Book
+    // Instatiate Book object
 let book = new Book(title, author, pages, type);
 if(UI.validate(book)){
              // Add Book to UI
