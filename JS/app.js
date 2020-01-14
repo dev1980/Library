@@ -80,15 +80,20 @@ class UI {
     }, 5000);
   }
 }
+
 //Event : Display Books
+
 document.addEventListener('DOMContentLoaded', UI.displayBooks());
+
 //Event: Add a Book
+
 document.getElementById('form-book').addEventListener('submit', e => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read');
   const unread = document.getElementById('unread');
+  const type
 
   if (read.checked) {
     type = read.value;
@@ -113,6 +118,6 @@ document.getElementById('form-book').addEventListener('submit', e => {
   e.preventDefault();
 });
 // Events : To remove the book from the list
-document.querySelector('#tableBody').addEventListener('click', e => {
+document.querySelector('#tableBody').addEventListener(('click', e) => {
   UI.deleteBook(e.target);
 });
