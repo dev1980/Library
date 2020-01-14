@@ -1,3 +1,24 @@
+const myLibrary = [
+  {
+    title: "Harry Potter",
+    author: "John Doe",
+    pages: "234",
+    type: "Read"
+  },
+  {
+    title: "Sherlock Hormes",
+    author: "Dr John Doe",
+    pages: "587",
+    type: "Unread"
+  },
+  {
+    title: "Tale of Two Cities",
+    author: "Dr Smith Doe",
+    pages: "359",
+    type: "Unread"
+  }
+];
+
 // Book class: Represent book
 class Book {
   constructor(title, author, pages, type) {
@@ -10,32 +31,12 @@ class Book {
 // UI class: Handle UI task
 class UI {
   static displayBooks() {
-    const StoredBooks = [
-      {
-        title: 'Harry Potter',
-        author: 'John Doe',
-        pages: '234',
-        type: 'Read',
-      },
-      {
-        title: 'Sherlock Hormes',
-        author: 'Dr John Doe',
-        pages: '587',
-        type: 'Unread',
-      },
-      {
-        title: 'Tale of Two Cities',
-        author: 'Dr Smith Doe',
-        pages: '359',
-        type: 'Unread',
-      },
-    ];
-    const books = StoredBooks;
+    const books = myLibrary;
     books.forEach(book => UI.addBookToList(book));
   }
 
   static addBookToList(book) {
-    const list = document.getElementById('tableBody');
+    const list = document.getElementById("tableBody");
     const row = `<tr>
     <td>${book.title}</td>
     <td>${book.author}</td>
@@ -47,13 +48,13 @@ class UI {
   }
 
   static deleteBook(el) {
-    if (el.classList.contains('delete')) {
+    if (el.classList.contains("delete")) {
       el.parentElement.parentElement.remove();
     }
   }
 
   static clearFields() {
-    const formBook = document.getElementById('form-book');
+    const formBook = document.getElementById("form-book");
     formBook.reset();
   }
 
@@ -66,7 +67,7 @@ class UI {
   }
 
   static showAlert(type, displayMessage) {
-    const message = document.getElementById('message');
+    const message = document.getElementById("message");
     message.innerHTML = `<div class='alert alert-${type} alert-dismissible fade show' role='alert'>
                                 <strong>Message:</strong>${displayMessage}
                                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -74,20 +75,20 @@ class UI {
                                 </button>
                             </div>`;
     setTimeout(() => {
-      message.innerHTML = '';
+      message.innerHTML = "";
     }, 5000);
   }
 }
 
-document.addEventListener('DOMContentLoaded', UI.displayBooks());
+document.addEventListener("DOMContentLoaded", UI.displayBooks());
 
-document.getElementById('form-book').addEventListener('submit', (e) => {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = document.getElementById('pages').value;
-  const read = document.getElementById('read');
-  const unread = document.getElementById('unread');
-  const type = (read.checked) ? read.value : unread.value;
+document.getElementById("form-book").addEventListener("submit", e => {
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read");
+  const unread = document.getElementById("unread");
+  const type = read.checked ? read.value : unread.value;
 
   // Instatiate Book
   const book = new Book(title, author, pages, type);
@@ -96,14 +97,17 @@ document.getElementById('form-book').addEventListener('submit', (e) => {
     UI.addBookToList(book);
     // Clear Field
     UI.clearFields();
-    UI.showAlert('success', 'You have book has been added book succesefully.');
+    UI.showAlert("success", "You have book has been added book succesefully.");
   } else {
-    UI.showAlert('danger', ' Sorry you canot add this book, Please fill the form');
+    UI.showAlert(
+      "danger",
+      " Sorry you canot add this book, Please fill the form"
+    );
   }
 
   e.preventDefault();
 });
 // Events : To remove the book from the list
-document.querySelector('#tableBody').addEventListener('click', (e) => {
+document.querySelector("#tableBody").addEventListener("click", e => {
   UI.deleteBook(e.target);
 });
