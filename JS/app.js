@@ -113,6 +113,6 @@ document.getElementById('form-book').addEventListener('submit', e => {
   e.preventDefault();
 });
 // Events : To remove the book from the list
-document.querySelector('#tableBody').addEventListener(('click', e) => {
+document.querySelector('#tableBody').addEventListener('click', e => {
   UI.deleteBook(e.target);
 });
