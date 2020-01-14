@@ -58,12 +58,11 @@ class UI {
   }
 
   // Add method to implement validation
-
   static validate(book) {
     if (book.title.length < 2 || book.author.length < 2) {
       return false;
     }
-      return true;
+    return true;
   }
 
   static showAlert(type, displayMessage) {
