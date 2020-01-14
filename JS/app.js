@@ -12,23 +12,23 @@ class UI {
   static displayBooks() {
     let StoredBooks = [
       {
-        title: "Harry Potter",
-        author: "John Doe",
-        pages: "234",
-        type: "Read"
+        title: 'Harry Potter',
+        author: 'John Doe',
+        pages: '234',
+        type: 'Read'
       },
       {
-        title: "Sherlock Hormes",
-        author: "Dr John Doe",
-        pages: "2777",
-        type: "Unread"
+        title: 'Sherlock Hormes',
+        author: 'Dr John Doe',
+        pages: '2777',
+        type: 'Unread'
       }
     ];
     let books = StoredBooks;
     books.forEach(book => UI.addBookToList(book));
   }
   static addBookToList(book) {
-    let list = document.getElementById("tableBody");
+    let list = document.getElementById('tableBody');
     let row = `<tr>
     <td>${book.title}</td>
     <td>${book.author}</td>
@@ -39,12 +39,12 @@ class UI {
     list.innerHTML += row;
   }
   static deleteBook(el) {
-    if (el.classList.contains("delete")) {
+    if (el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
     }
   }
   static clearFields() {
-    let formBook = document.getElementById("form-book");
+    let formBook = document.getElementById('form-book');
     formBook.reset();
   }
   // Add method to implement validation
@@ -56,7 +56,7 @@ class UI {
     }
   }
   static showAlert(type, displayMessage) {
-    let message = document.getElementById("message");
+    let message = document.getElementById('message');
     message.innerHTML = `<div class='alert alert-${type} alert-dismissible fade show' role='alert'>
                                 <strong>Message:</strong>${displayMessage}
                                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -64,20 +64,20 @@ class UI {
                                 </button>
                             </div>`;
     setTimeout(() => {
-      message.innerHTML = "";
+      message.innerHTML = ';
     }, 5000);
   }
 }
 //Event : Display Books
-document.addEventListener("DOMContentLoaded", UI.displayBooks());
+document.addEventListener('DOMContentLoaded', UI.displayBooks());
 //Event: Add a Book
-document.getElementById("form-book").addEventListener("submit", e => {
-  let title = document.getElementById("title").value;
-  let author = document.getElementById("author").value;
-  let pages = document.getElementById("pages").value;
+document.getElementById('form-book').addEventListener('submit', e => {
+  let title = document.getElementById('title').value;
+  let author = document.getElementById('author').value;
+  let pages = document.getElementById('pages').value;
   let type;
-  let read = document.getElementById("read");
-  let unread = document.getElementById("unread");
+  let read = document.getElementById('read');
+  let unread = document.getElementById('unread');
 
   if (read.checked) {
     type = read.value;
@@ -91,17 +91,17 @@ document.getElementById("form-book").addEventListener("submit", e => {
     UI.addBookToList(book);
     // Clear Field
     UI.clearFields();
-    UI.showAlert("success", "You have book has been added book succesefully.");
+    UI.showAlert('success', 'You have book has been added book succesefully.');
   } else {
     UI.showAlert(
-      "danger",
-      " Sorry you canot add this book, Please fill the form"
+      'danger',
+      ' Sorry you canot add this book, Please fill the form'
     );
   }
 
   e.preventDefault();
 });
 // Events : To remove the book from the list
-document.querySelector("#tableBody").addEventListener("click", e => {
+document.querySelector('#tableBody').addEventListener('click', e => {
   UI.deleteBook(e.target);
 });
