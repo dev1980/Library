@@ -34,7 +34,7 @@ class UI {
     <td>${book.author}</td>
     <td>${book.pages}</td>
     <td>${book.type}</td>
-    <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td> 
+    <td><a href='#' class='btn btn-danger btn-sm delete'>X</a></td> 
     </tr>`;
     list.innerHTML += row;
   }
@@ -57,10 +57,10 @@ class UI {
   }
   static showAlert(type, displayMessage) {
     let message = document.getElementById("message");
-    message.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+    message.innerHTML = `<div class='alert alert-${type} alert-dismissible fade show' role='alert'>
                                 <strong>Message:</strong>${displayMessage}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
                                 </button>
                             </div>`;
     setTimeout(() => {
