@@ -51,20 +51,40 @@ class UI {
         formBook.reset();
     }
 
-
+// Add method to implement validation
+static validate (book) {
+    if (book.title.length < 2 || book.author.length < 2)
+    {
+        return false;
+    } else {
+        return true;
+    }
+ }
+  static showAlert(type, displayMessage){
+  let message = document.getElementById('message');
+  message.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                                <strong>Message:</strong>${displayMessage}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>`
+    setTimeout(() => {
+        message.innerHTML = "";
+    }, 2000);
+  }
 }
 
     // Instatiate Book object
 let book = new Book(title, author, pages, type);
 if(UI.validate(book)){
-             // Add Book to UI
-             UI.addBookToList(book);
-             // Clear Field
-            UI.clearFields();
-            UI.showAlert('success', 'You have book has been added book succesefully.');
-        } else {
-            UI.showAlert('danger', ' Sorry you canot add this book, Please fill the form');
-        }
+     // Add Book to UI
+     UI.addBookToList(book);
+     // Clear Field
+    UI.clearFields();
+    UI.showAlert('success', 'You have book has been added book succesefully.');
+} else {
+    UI.showAlert('danger', ' Sorry you canot add this book, Please fill the form');
+}
        
     e.preventDefault();  
 });
