@@ -63,8 +63,8 @@ class UI {
                                 <span aria-hidden='true'>&times;</span>
                                 </button>
                             </div>`;
-    setTimeout(() => {
-      message.innerHTML = "";
+    setTimeout(() => { 
+      message.innerHTML = '';
     }, 5000);
   }
 }
