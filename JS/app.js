@@ -10,32 +10,33 @@ class Book {
 // UI class: Handle UI task
 class UI {
   static displayBooks() {
-    let StoredBooks = [
+    const StoredBooks = [
       {
         title: 'Harry Potter',
         author: 'John Doe',
         pages: '234',
-        type: 'Read'
+        type: 'Read',
       },
       {
         title: 'Sherlock Hormes',
         author: 'Dr John Doe',
         pages: '587',
-        type: 'Unread'
+        type: 'Unread',
       },
       {
         title: 'Tale of Two Cities',
         author: 'Dr Smith Doe',
         pages: '359',
-        type: 'Unread'
-      }
+        type: 'Unread',
+      },
     ];
-    let books = StoredBooks;
+    const books = StoredBooks;
     books.forEach(book => UI.addBookToList(book));
   }
+
   static addBookToList(book) {
-    let list = document.getElementById('tableBody');
-    let row = `<tr>
+    const list = document.getElementById('tableBody');
+    const row = `<tr>
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.pages}</td>
@@ -44,16 +45,20 @@ class UI {
     </tr>`;
     list.innerHTML += row;
   }
+
   static deleteBook(el) {
     if (el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
     }
   }
+
   static clearFields() {
-    let formBook = document.getElementById('form-book');
+    const formBook = document.getElementById('form-book');
     formBook.reset();
   }
+
   // Add method to implement validation
+
   static validate(book) {
     if (book.title.length < 2 || book.author.length < 2) {
       return false;
@@ -61,8 +66,9 @@ class UI {
       return true;
     }
   }
+
   static showAlert(type, displayMessage) {
-    let message = document.getElementById('message');
+    const message = document.getElementById('message');
     message.innerHTML = `<div class='alert alert-${type} alert-dismissible fade show' role='alert'>
                                 <strong>Message:</strong>${displayMessage}
                                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -78,12 +84,12 @@ class UI {
 document.addEventListener('DOMContentLoaded', UI.displayBooks());
 //Event: Add a Book
 document.getElementById('form-book').addEventListener('submit', e => {
-  let title = document.getElementById('title').value;
-  let author = document.getElementById('author').value;
-  let pages = document.getElementById('pages').value;
-  let type;
-  let read = document.getElementById('read');
-  let unread = document.getElementById('unread');
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const type;
+  const read = document.getElementById('read');
+  const unread = document.getElementById('unread');
 
   if (read.checked) {
     type = read.value;
