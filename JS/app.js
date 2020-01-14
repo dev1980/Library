@@ -65,7 +65,7 @@ class UI {
                             </div>`;
         setTimeout(() => {
             message.innerHTML = "";
-        }, 2000);
+        }, 5000);
     }
 }
 //Event : Display Books
@@ -104,7 +104,7 @@ document.getElementById("form-book").addEventListener("submit", e => {
 
     e.preventDefault();
 });
-// Events : To remove the BOOK in both UI and local storage
+// Events : To remove the book from the list
 document.querySelector("#tableBody").addEventListener("click", e => {
     UI.deleteBook(e.target);
 });
