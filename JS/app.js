@@ -104,8 +104,7 @@ document.getElementById('form-book').addEventListener('submit', e => {
   } else {
     UI.showAlert(
       'danger',
-      ' Sorry you canot add this book, Please fill the form',
-    );
+      ' Sorry you canot add this book, Please fill the form');
   }
 
   e.preventDefault();
