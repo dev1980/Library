@@ -82,11 +82,9 @@ class UI {
 }
 
 //Event : Display Books
-
 document.addEventListener('DOMContentLoaded', UI.displayBooks());
 
 //Event: Add a Book
-
 document.getElementById('form-book').addEventListener('submit', e => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
@@ -96,7 +94,7 @@ document.getElementById('form-book').addEventListener('submit', e => {
   const type = (read.checked) ? read.value : unread.value;
 
   // Instatiate Book
-  let book = new Book(title, author, pages, type);
+  const book = new Book(title, author, pages, type);
   if (UI.validate(book)) {
     // Add Book to UI
     UI.addBookToList(book);
@@ -106,7 +104,7 @@ document.getElementById('form-book').addEventListener('submit', e => {
   } else {
     UI.showAlert(
       'danger',
-      ' Sorry you canot add this book, Please fill the form'
+      ' Sorry you canot add this book, Please fill the form',
     );
   }
 
