@@ -9,7 +9,7 @@ class Book {
     }
 }
 
-/ UI class: Handle UI task
+// UI class: Handle UI task
 class UI {
     static displayBooks() {
         let myLibrary = [
@@ -41,3 +41,26 @@ class UI {
         </tr>`;
         list.innerHTML += row;
     }
+
+
+    
+}
+
+    // Instatiate Book
+let book = new Book(title, author, pages, type);
+if(UI.validate(book)){
+             // Add Book to UI
+             UI.addBookToList(book);
+             // Clear Field
+            UI.clearFields();
+            UI.showAlert('success', 'You have book has been added book succesefully.');
+        } else {
+            UI.showAlert('danger', ' Sorry you canot add this book, Please fill the form');
+        }
+       
+    e.preventDefault();  
+});
+// Events : To remove the BOOK in both UI and local storage
+document.querySelector('#tableBody').addEventListener('click', (e) => {
+    UI.deleteBook(e.target);
+});
