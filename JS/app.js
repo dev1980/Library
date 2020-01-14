@@ -64,7 +64,7 @@ class UI {
                                 </button>
                             </div>`;
     setTimeout(() => {
-      message.innerHTML = ';
+      message.innerHTML = '';
     }, 5000);
   }
 }
