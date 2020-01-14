@@ -94,12 +94,8 @@ document.getElementById('form-book').addEventListener('submit', e => {
   const read = document.getElementById('read');
   const unread = document.getElementById('unread');
   const type
+  type = read.checked ? read.value : unread.value;
 
-  if (read.checked) {
-    type = read.value;
-  } else if (unread.checked) {
-    type = unread.value;
-  }
   // Instatiate Book
   let book = new Book(title, author, pages, type);
   if (UI.validate(book)) {
