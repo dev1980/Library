@@ -39,15 +39,12 @@ class UI {
   static deleteBook(el) {
     if (el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
-      let book = el.getAttribute('data-index');
+      const book = el.getAttribute('data-index');
       myLibrary.splice(book, 1);
       UI.updateLocalStorage(myLibrary);
     }
   }
-  //remove from local storage
-  static removeBook(){
 
-}
   static clearFields() {
     const formBook = document.getElementById('form-book');
     formBook.reset();
@@ -105,5 +102,3 @@ document.querySelector('#tableBody').addEventListener('click', (e) => {
 
   // Removed form Localstorage
 });
-
-
