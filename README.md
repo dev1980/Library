@@ -38,7 +38,7 @@ Firebase (check it out!) is an online database that can be set up relatively eas
 
 ## Live Demo
 
-[Live Demo Link](https://raw.githack.com/dev1980/Library/book_features/index.html)
+[Live Demo Link](https://raw.githack.com/dev1980/Library/development/index.html)
 
 ## Authors
 
