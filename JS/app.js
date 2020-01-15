@@ -71,7 +71,7 @@ class UI {
 
 document.addEventListener('DOMContentLoaded', UI.displayBooks());
 
-document.getElementById('form-book').addEventListener('submit', e =>() 
+document.getElementById('form-book').addEventListener('submit', e =>()
 {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
