@@ -72,9 +72,9 @@ class UI {
   }
 }
 
-document.addEventListener("DOMContentLoaded", UI.displayBooks());
+document.addEventListener('DOMContentLoaded', UI.displayBooks());
 
-document.getElementById('form-book').addEventListener("submit", e => {
+document.getElementById('form-book').addEventListener('submit',   (e) => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
@@ -91,12 +91,9 @@ document.getElementById('form-book').addEventListener("submit", e => {
     UI.addBookToList(book);
     // Clear Field
     UI.clearFields();
-    UI.showAlert("success", "You have book has been added book succesefully.");
+    UI.showAlert('success', 'You have book has been added book succesefully.');
   } else {
-    UI.showAlert(
-      "danger",
-      "Sorry you can not add this book Please fill the form."
-    );
+    UI.showAlert('danger', 'Sorry you can not add this book Please fill the form.');
   }
 
   e.preventDefault();
