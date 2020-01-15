@@ -26,7 +26,7 @@ class UI {
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.pages}</td>
-    <td>${book.type}</td>
+    <td><button class="btn btn-primary">${book.type}</button></td>
     <td><a href='#' data-index= ${index} class='btn btn-danger btn-sm delete'>X</a></td> 
     </tr>`;
     list.innerHTML += row;
@@ -99,6 +99,4 @@ document.getElementById('form-book').addEventListener('submit', (e) => {
 // Events : To remove the book from the UI
 document.querySelector('#tableBody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
-
-  // Removed form Localstorage
 });
