@@ -26,7 +26,7 @@ class UI {
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.pages}</td>
-    <td><button class="btn btn-primary toggle-btn" onclick="this.textContent= (this.textContent == 'Read') ? 'Unread' : 'Read'">${book.type}</button></td>
+    <td><button class="btn btn-light" onclick="this.textContent= (this.textContent == 'Read') ? 'Unread' : 'Read'">${book.type}</button></td>
     <td><a href='#' data-index= ${index} class='btn btn-danger btn-sm delete'>X</a></td> 
     </tr>`;
     list.innerHTML += row;
