@@ -17,17 +17,17 @@ class Book {
 class UI {
   static displayBooks() {
     const books = myLibrary;
-    books.forEach(book => UI.addBookToList(book));
+    books.forEach((book, index) => UI.addBookToList(book, index));
   }
 
-  static addBookToList(book) {
+  static addBookToList(book, index) {
     const list = document.getElementById('tableBody');
     const row = `<tr>
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.pages}</td>
     <td>${book.type}</td>
-    <td><a href='#' class='btn btn-danger btn-sm delete'>X</a></td> 
+    <td><a href='#' data-index= ${index} class='btn btn-danger btn-sm delete'>X</a></td> 
     </tr>`;
     list.innerHTML += row;
   }
@@ -39,9 +39,15 @@ class UI {
   static deleteBook(el) {
     if (el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
+      let book = el.getAttribute('data-index');
+      myLibrary.splice(book, 1);
+      UI.updateLocalStorage(myLibrary);
     }
   }
+  //remove from local storage
+  static removeBook(){
 
+}
   static clearFields() {
     const formBook = document.getElementById('form-book');
     formBook.reset();
@@ -93,7 +99,11 @@ document.getElementById('form-book').addEventListener('submit', (e) => {
 
   e.preventDefault();
 });
-// Events : To remove the book from the list
+// Events : To remove the book from the UI
 document.querySelector('#tableBody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
+
+  // Removed form Localstorage
 });
+
+
